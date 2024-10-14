@@ -8,6 +8,7 @@ test('intersection-observer-test', async ({ page }) => {
 
 test('test-facebook', async ({ page }) => {
   await page.goto('https://www.facebook.com/karaoke.utahiroba');
+  await expect(page.locator('[aria-label="閉じる"]')).toHaveCount(1);
   await page.locator('[aria-label="閉じる"]').click();
   await expect(page.locator('[aria-posinset="1"]')).toHaveCount(1);
   await expect(page.locator('[aria-posinset="2"]')).toHaveCount(1);
