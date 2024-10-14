@@ -1,0 +1,12 @@
+<div id="target">Target</div>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    console.log(entries);
+    entries.filter(entry => entry.isIntersecting).forEach(({target}) => {
+      target.classList.add('visible');
+      target.textContent = 'Visible';
+      target.dataset.testid = 'target-visible';
+    });
+  });
+  observer.observe(document.querySelector('#target'));
+</script>
